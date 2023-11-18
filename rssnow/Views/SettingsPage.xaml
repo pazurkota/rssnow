@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="rssnow.Views.SettingsPage"
              Title="Settings Page"
-             BackgroundColor="#403D39">
+             BackgroundColor="#4A4E69">
     <ContentPage.Content>
         
     </ContentPage.Content>
