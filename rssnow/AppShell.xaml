@@ -12,12 +12,15 @@
     
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Newspaper"
+                      Icon="newspaper.png"
                       ContentTemplate="{DataTemplate local:NewspaperPage}"
                       Route="NewspaperPage"/>
         <ShellContent Title="RSS Channels"
+                      Icon="rsschannels.png"
                       ContentTemplate="{DataTemplate local:RssChannelsPage}"
                       Route="RssChannelsPage"/>
         <ShellContent Title="Settings" 
+                      Icon="settings.png"
                       ContentTemplate="{DataTemplate local:SettingsPage}"
                       Route="SettingsPage"/>
     </FlyoutItem>
@@ -34,11 +37,12 @@
     
     <Shell.ItemTemplate>
         <DataTemplate>
-            <Grid ColumnDefinitions="25, *" Margin="10">
+            <Grid ColumnDefinitions="35, *" Margin="5">
                 <Image Grid.Column="0" 
                        Source="{Binding FlyoutIcon}" 
-                       HeightRequest="25"
-                       VerticalOptions="Center"/>
+                       HeightRequest="35"
+                       VerticalOptions="Center"
+                       Margin="0, 0, 15, 0"/>
                 <Label Grid.Column="1" 
                        Text="{Binding Title}" 
                        TextColor="#F2E9E4"
