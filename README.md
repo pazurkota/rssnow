@@ -21,3 +21,6 @@ RSSnow is a simple RSS News app created with .NET MAUI
 - Usage Statistics
 - Privacy Policy
 - Multi-Platform Optimization
+
+## ✨ Acknowledgements:
+- Google Material Icons: https://fonts.google.com/icons
