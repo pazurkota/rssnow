@@ -3,12 +3,52 @@
     x:Class="rssnow.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:rssnow"
-    Shell.FlyoutBehavior="Disabled">
-
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+    xmlns:local="clr-namespace:rssnow.Views"
+    FlyoutBackgroundColor="{DynamicResource Gray}"
+    BackgroundColor="{DynamicResource Secondary}"
+    TitleColor="{DynamicResource Tertiary}"
+    FlyoutBehavior="Flyout"
+    TabBarIsVisible="False">
+    
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Newspaper"
+                      Icon="newspaper.png"
+                      ContentTemplate="{DataTemplate local:NewspaperPage}"
+                      Route="NewspaperPage"/>
+        <ShellContent Title="RSS Channels"
+                      Icon="rsschannels.png"
+                      ContentTemplate="{DataTemplate local:RssChannelsPage}"
+                      Route="RssChannelsPage"/>
+        <ShellContent Title="Settings" 
+                      Icon="settings.png"
+                      ContentTemplate="{DataTemplate local:SettingsPage}"
+                      Route="SettingsPage"/>
+    </FlyoutItem>
+    
+    <!-- Flyout style -->
+    
+    <Shell.FlyoutHeader>
+        <Label Text="RSSNow"
+               TextColor="{DynamicResource Tertiary}"
+               HorizontalOptions="Center"
+               FontSize="50"
+               FontAttributes="Bold"/>
+    </Shell.FlyoutHeader>
+    
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="35, *" Margin="5">
+                <Image Grid.Column="0" 
+                       Source="{Binding FlyoutIcon}" 
+                       HeightRequest="35"
+                       VerticalOptions="Center"
+                       Margin="0, 0, 15, 0"/>
+                <Label Grid.Column="1" 
+                       Text="{Binding Title}" 
+                       TextColor="#F2E9E4"
+                       FontSize="15"
+                       VerticalTextAlignment="Center"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
 </Shell>
