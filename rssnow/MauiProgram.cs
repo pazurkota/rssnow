@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-
-namespace rssnow;
+﻿namespace rssnow;
 
 public static class MauiProgram {
     public static MauiApp CreateMauiApp() {
@@ -12,10 +10,9 @@ public static class MauiProgram {
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
 
-#if DEBUG
-        builder.Logging.AddDebug();
-#endif
-
+        string dbPath = FileAccessHelper.GetLocalFilePath("people.db3");
+        builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<RssLinkRepository>(s, dbPath));
+        
         return builder.Build();
     }
 }
