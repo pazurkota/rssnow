@@ -6,11 +6,31 @@
              Title="RSS Channels"
              BackgroundColor="{DynamicResource Primary}">
     <ContentPage.Content>
-        <VerticalStackLayout>
-            <Button Text="Add RSS channel"
-                    HeightRequest="40"
-                    WidthRequest="160"
-                    Clicked="AddRssLinkClicked"/>
+        <VerticalStackLayout Margin="5">
+            <Grid RowDefinitions="Auto, Auto, *">
+                <Button Grid.Row="0"
+                        Text="Add RSS channel"
+                        HeightRequest="40"
+                        WidthRequest="160"
+                        Clicked="AddRssLinkClicked"/>
+            
+                <Button Grid.Row="1"
+                        Text="Show all channels"
+                        HeightRequest="40"
+                        WidthRequest="160"
+                        Clicked="ShowAllChannelsClicked"/>
+            
+                <CollectionView x:Name="Channels" Grid.Row="2">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="*, 2*">
+                                <Label Grid.Column="0" Text="{Binding Id}" FontSize="10"/>
+                                <Label Grid.Column="1" Text="{Binding Link}" FontSize="10"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
         </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>
