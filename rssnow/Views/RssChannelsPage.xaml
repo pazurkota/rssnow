@@ -7,7 +7,7 @@
              BackgroundColor="{DynamicResource Primary}">
     <ContentPage.Content>
         <VerticalStackLayout Margin="5">
-            <Grid RowDefinitions="Auto, Auto, *">
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto, *">
                 <Button Grid.Row="0"
                         Text="Add RSS channel"
                         HeightRequest="40"
@@ -19,8 +19,20 @@
                         HeightRequest="40"
                         WidthRequest="160"
                         Clicked="ShowAllChannelsClicked"/>
+                
+                <Button Grid.Row="2"
+                        Text="Update Channel"
+                        HeightRequest="40"
+                        WidthRequest="160"
+                        Clicked="UpdateChannelClicked"/>
+                
+                <Button Grid.Row="3"
+                        Text="Delete Channel"
+                        HeightRequest="40"
+                        WidthRequest="160"
+                        Clicked="DeleteChannelClicked"/>
             
-                <CollectionView x:Name="Channels" Grid.Row="2">
+                <CollectionView x:Name="Channels" Grid.Row="4">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid ColumnDefinitions="*, 2*">

@@ -89,19 +89,19 @@ public class RssLinkRepository
         }
     }
 
-    public async void DeleteLink(string link)
+    public async void DeleteLink(int id)
     {
         try
         {
             Init();
 
-            int result = await conn.Table<RssLink>().Where(x => x.Link == link).DeleteAsync();
+            int result = await conn.Table<RssLink>().Where(x => x.Id == id).DeleteAsync();
 
-            StatusMessage = $"{result} record(s) deleted (URL: {link})";
+            StatusMessage = $"{result} record(s) deleted (ID: {id})";
         }
         catch (Exception e)
         {
-            StatusMessage = $"Failed to delete {link} (Error: {e.Message})";
+            StatusMessage = $"Failed to delete channel with ID: {id} (Error: {e.Message})";
         }
     }
 }

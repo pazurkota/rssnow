@@ -4,8 +4,6 @@ namespace rssnow.Views;
 
 public partial class RssChannelsPage : ContentPage
 {
-    RssLinkRepository _repository;
-    
     public RssChannelsPage()
     {
         InitializeComponent();
@@ -26,6 +24,24 @@ public partial class RssChannelsPage : ContentPage
     {
         List<RssLink> links = await App.Repository.GetAllLinks();
         Channels.ItemsSource = links;
+    }
+
+    async void UpdateChannelClicked(object sender, EventArgs e)
+    {
+        int id = Int32.Parse(await DisplayPromptAsync("Edit RSS Channel", "Insert ID of the channel"));
+        string newLink = await DisplayPromptAsync("Edit RSS Channel", "Insert a new link:");
+
+        List<RssLink> links = await App.Repository.GetAllLinks();
+        string link = links.Find(x => x.Id == id).Link;
+
+        App.Repository.EditLink(link, newLink);
+    }
+
+    async void DeleteChannelClicked(object sender, EventArgs e)
+    {
+        int id = int.Parse(await DisplayPromptAsync("Delete RSS Channel", "Insert ID of the channel"));
+        
+        App.Repository.DeleteLink(id);
     }
 }
 
