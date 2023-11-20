@@ -10,7 +10,7 @@ public static class MauiProgram {
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
 
-        string dbPath = FileAccessHelper.GetLocalFilePath("people.db3");
+        string dbPath = FileAccessHelper.GetLocalFilePath("rsslinks.db3");
         builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<RssLinkRepository>(s, dbPath));
         
         return builder.Build();

@@ -6,6 +6,11 @@
              Title="RSS Channels"
              BackgroundColor="{DynamicResource Primary}">
     <ContentPage.Content>
-        
+        <VerticalStackLayout>
+            <Button Text="Add RSS channel"
+                    HeightRequest="40"
+                    WidthRequest="160"
+                    Clicked="AddRssLinkClicked"/>
+        </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>
