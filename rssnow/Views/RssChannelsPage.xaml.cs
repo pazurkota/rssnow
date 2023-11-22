@@ -1,4 +1,5 @@
 ﻿using rssnow.Model;
+using rssnow.ViewModel;
 
 namespace rssnow.Views;
 
@@ -7,6 +8,7 @@ public partial class RssChannelsPage : ContentPage
     public RssChannelsPage()
     {
         InitializeComponent();
+        BindingContext = new RssChannelsViewModel();
     }
 
     async void AddRssLinkClicked(object sender, EventArgs e)
@@ -20,10 +22,11 @@ public partial class RssChannelsPage : ContentPage
         await DisplayAlert("Status", $"{App.Repository.StatusMessage}", "OK");
     }
 
-    async void ShowAllChannelsClicked(object sender, EventArgs e)
+    void ShowAllChannelsClicked(object sender, EventArgs e)
     {
-        List<RssLink> links = await App.Repository.GetAllLinks();
-        Channels.ItemsSource = links;
+        var viewModel = (RssChannelsViewModel)BindingContext;
+        
+        viewModel.GetAllChannels();
     }
 
     async void UpdateChannelClicked(object sender, EventArgs e)
