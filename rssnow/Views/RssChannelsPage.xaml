@@ -11,34 +11,42 @@
         <viewmodel:RssChannelsViewModel />
     </ContentPage.BindingContext>
     
+    <ContentPage.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="HeightRequest" Value="40"/>
+            <Setter Property="CornerRadius" Value="0"/>
+            <Setter Property="BackgroundColor" Value="{DynamicResource DarkNavyBlue}"/>
+            <Setter Property="TextColor" Value="{DynamicResource Tertiary}"/>
+            <Setter Property="BorderColor" Value="Transparent"/>
+        </Style>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
-        <VerticalStackLayout Margin="5">
-            <Grid RowDefinitions="Auto, Auto, Auto, Auto, *">
-                <Button Grid.Row="0"
-                        Text="Add RSS channel"
-                        HeightRequest="40"
-                        WidthRequest="160"
-                        Clicked="AddRssLinkClicked"/>
+        <VerticalStackLayout Margin="5, 10">
+            <Grid RowDefinitions="Auto, *">
+                    <Grid Grid.Row="0" ColumnDefinitions="*, *, *, *">
+                        <Button Grid.Column="0"
+                                Text="Add"
+                                Style="{StaticResource ButtonStyle}"
+                                Clicked="AddRssLinkClicked"/>
             
-                <Button Grid.Row="1"
-                        Text="Show all channels"
-                        HeightRequest="40"
-                        WidthRequest="160"
-                        Clicked="ShowAllChannelsClicked"/>
+                        <Button Grid.Column="1"
+                                Text="Show all"
+                                Style="{StaticResource ButtonStyle}"
+                                Clicked="ShowAllChannelsClicked"/>
                 
-                <Button Grid.Row="2"
-                        Text="Update Channel"
-                        HeightRequest="40"
-                        WidthRequest="160"
-                        Clicked="UpdateChannelClicked"/>
+                        <Button Grid.Column="2"
+                                Text="Update"
+                                Style="{StaticResource ButtonStyle}"
+                                Clicked="UpdateChannelClicked"/>
                 
-                <Button Grid.Row="3"
-                        Text="Delete Channel"
-                        HeightRequest="40"
-                        WidthRequest="160"
-                        Clicked="DeleteChannelClicked"/>
+                        <Button Grid.Column="3"
+                                Text="Delete"
+                                Style="{StaticResource ButtonStyle}"
+                                Clicked="DeleteChannelClicked"/>
+                    </Grid>
             
-                <CollectionView ItemsSource="{Binding Links}" Grid.Row="4">
+                <CollectionView ItemsSource="{Binding Links}" Grid.Row="1">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid ColumnDefinitions="*, 2*">
