@@ -22,9 +22,9 @@
     </ContentPage.Resources>
     
     <ContentPage.Content>
-        <VerticalStackLayout Margin="5, 10">
+        <VerticalStackLayout Margin="5, 0">
             <Grid RowDefinitions="Auto, *">
-                    <Grid Grid.Row="0" ColumnDefinitions="*, *, *, *">
+                    <Grid Grid.Row="0" ColumnDefinitions="*, *, *, *" Margin="0, 5, 0, 10">
                         <Button Grid.Column="0"
                                 Text="Add"
                                 Style="{StaticResource ButtonStyle}"
@@ -49,9 +49,22 @@
                 <CollectionView ItemsSource="{Binding Links}" Grid.Row="1">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Grid ColumnDefinitions="*, 2*">
-                                <Label Grid.Column="0" Text="{Binding Id}" FontSize="10"/>
-                                <Label Grid.Column="1" Text="{Binding Link}" FontSize="10"/>
+                            <Grid ColumnDefinitions="Auto, 2*" Margin="0, 5">
+                                <BoxView Grid.ColumnSpan="2" 
+                                         Color="{DynamicResource DarkNavyBlue}"
+                                         CornerRadius="10"/>
+                                
+                                <Label Grid.Column="0" 
+                                       Text="{Binding Id, StringFormat='{}({0})'}" 
+                                       TextColor="{DynamicResource Tertiary}"
+                                       FontSize="25" 
+                                       Margin="5, 8"/>
+                                
+                                <Label Grid.Column="1" 
+                                       Text="{Binding Link}" 
+                                       TextColor="{DynamicResource Tertiary}"
+                                       FontSize="25" 
+                                       Margin="0,8"/>
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
