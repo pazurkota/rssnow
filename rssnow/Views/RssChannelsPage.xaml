@@ -50,6 +50,9 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid ColumnDefinitions="Auto, 2*" Margin="0, 5">
+                                <Button Grid.ColumnSpan="2" 
+                                        BackgroundColor="Transparent"/>
+                                
                                 <BoxView Grid.ColumnSpan="2" 
                                          Color="{DynamicResource DarkNavyBlue}"
                                          CornerRadius="10"/>

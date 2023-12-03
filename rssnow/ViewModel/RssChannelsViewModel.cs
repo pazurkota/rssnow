@@ -1,5 +1,6 @@
 ﻿using rssnow.Model;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace rssnow.ViewModel;
 
