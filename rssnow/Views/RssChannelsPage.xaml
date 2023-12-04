@@ -28,22 +28,22 @@
                         <Button Grid.Column="0"
                                 Text="Add"
                                 Style="{StaticResource ButtonStyle}"
-                                Clicked="AddRssLinkClicked"/>
+                                Command="{Binding AddChannelCommand}"/>
             
                         <Button Grid.Column="1"
                                 Text="Show all"
                                 Style="{StaticResource ButtonStyle}"
-                                Clicked="ShowAllChannelsClicked"/>
+                                Command="{Binding ShowAllChannelsCommand}"/>
                 
                         <Button Grid.Column="2"
                                 Text="Update"
                                 Style="{StaticResource ButtonStyle}"
-                                Clicked="UpdateChannelClicked"/>
+                                Command="{Binding UpdateChannelCommand}"/>
                 
                         <Button Grid.Column="3"
                                 Text="Delete"
                                 Style="{StaticResource ButtonStyle}"
-                                Clicked="DeleteChannelClicked"/>
+                                Command="{Binding DeleteChannelCommand}"/>
                     </Grid>
             
                 <CollectionView ItemsSource="{Binding Links}" Grid.Row="1">
