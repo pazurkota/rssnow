@@ -8,6 +8,8 @@ namespace rssnow.Views;
 
 public partial class RssChannelContentPage : ContentPage
 {
+    public string Text;
+    
     public RssChannelContentPage()
     {
         InitializeComponent();

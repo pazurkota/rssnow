@@ -10,5 +10,10 @@ public partial class RssChannelsPage : ContentPage
         InitializeComponent();
         BindingContext = new RssChannelsViewModel();
     }
+
+    async void NewsContentButton(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("contentpage");
+    }
 }
 

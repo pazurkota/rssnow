@@ -46,28 +46,28 @@
                                 Command="{Binding DeleteChannelCommand}"/>
                     </Grid>
             
-                <CollectionView ItemsSource="{Binding Links}" Grid.Row="1">
+                <CollectionView ItemsSource="{Binding Links}" Grid.Row="1" >
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Grid ColumnDefinitions="Auto, 2*" Margin="0, 5">
-                                <Button Grid.ColumnSpan="2" 
-                                        BackgroundColor="Transparent"/>
+                            <Grid Margin="0, 5">
+                                <BoxView Color="{DynamicResource DarkNavyBlue}"
+                                         CornerRadius="15"/>
                                 
-                                <BoxView Grid.ColumnSpan="2" 
-                                         Color="{DynamicResource DarkNavyBlue}"
-                                         CornerRadius="10"/>
-                                
-                                <Label Grid.Column="0" 
-                                       Text="{Binding Id, StringFormat='{}({0})'}" 
-                                       TextColor="{DynamicResource Tertiary}"
+                                <Label TextColor="{DynamicResource Tertiary}"
                                        FontSize="25" 
-                                       Margin="5, 8"/>
+                                       Margin="5, 8">
+                                    <Label.Text>
+                                        <MultiBinding StringFormat="{}({0}) {1}">
+                                            <Binding Path="Id"/>
+                                            <Binding Path="Link"/>
+                                        </MultiBinding>
+                                    </Label.Text>
+                                </Label>
                                 
-                                <Label Grid.Column="1" 
-                                       Text="{Binding Link}" 
-                                       TextColor="{DynamicResource Tertiary}"
-                                       FontSize="25" 
-                                       Margin="0,8"/>
+                                <Button BackgroundColor="Transparent"
+                                        BorderColor="Transparent"
+                                        CornerRadius="15"
+                                        Clicked="NewsContentButton"/>
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

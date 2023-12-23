@@ -8,7 +8,7 @@ public partial class RssChannelsViewModel : ObservableObject
 {
     [ObservableProperty] List<RssLink> links;
 
-    public async void GetAllChannels()
+    async void GetAllChannels()
     {
         Links = await App.Repository.GetAllLinks();
     }
